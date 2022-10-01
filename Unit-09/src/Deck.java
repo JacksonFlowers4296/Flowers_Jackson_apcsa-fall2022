@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.ArrayList;
 import java.util.ArrayList;
 
 /**
@@ -11,7 +11,7 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private String[] cards;
+	private ArrayList<Card>cards;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -29,35 +29,21 @@ public class Deck {
 	 * @param suits is an array containing all of the card suits.
 	 * @param values is an array containing all of the card point values.
 	 */
-	public Deck(String[] ranks, String[] suits, int[] values, int suity, int valy, int ranky) {
+	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		int cC = -1;
-		int l = ((suits.length) * (values.length));
-		cards = new String[l];
+		cards = new ArrayList<Card>();
+		int l = suits.length + ranks.length;
 		
-		String[] cards = null;
+		
+		
 		
 		for (int i = 0; i < suits.length; i++)
-			suity = -1;
-		    valy = -1;
-		    ranky = -1;
+			
 			for (int j = 0; j < values.length; j++)
-			    cC++;
-		        if (suity <= suits.length - 2)
+			   
+		      
 		        {
-		        suity++;
-		        }
-		        if (suity <= suits.length - 2)
-		        {
-		        valy++;
-		        }
-		        if (suity <= suits.length - 2)
-		        {
-		        	ranky++;
-		        }
-		        if (suity <= suits.length - 2)
-		        {
-		        cards[cC] = info(ranks, suits, values, ranky, valy, suity);      
+		        cards.add(new Card(ranks[j], suits[i], values[j]));      
 		        }
 		       
 		        
@@ -73,11 +59,7 @@ public class Deck {
 
 
 
-	public String info(String[] ranks, String[] suits, int[] values, int ranky, int valy, int suity)
-	{
-		
-		return ranks[ranky] + ", " + suits[suity] + ", " + values[valy];
-	}
+	
 
 	/**
 	 * Determines if this deck is empty (no undealt cards).
@@ -133,13 +115,13 @@ public class Deck {
 			
 			
 		}
-	public String deal() {
+	public Card deal() {
 		int dealt = 0;
 		int b = 0;
 		int place = 0;
 		if(b == 0)
 		{
-			return cards[place];
+			return cards.get(place);
 		}
 		if(b == 0)
 		{
@@ -149,7 +131,7 @@ public class Deck {
 		{
 			place++;
 		}
-		return "abc";
+		return null;
 	}
 
 	/**
@@ -161,7 +143,7 @@ public class Deck {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards.length;
+			rtn = rtn + cards.get(k);
 			if (k != 0) {
 				rtn = rtn + ", ";
 			}
@@ -172,12 +154,12 @@ public class Deck {
 		}
 
 		rtn = rtn + "\nDealt cards: \n";
-		for (int k = cards.length - 1; k >= size; k--) {
-			rtn = rtn + cards.length;
+		for (int k = cards.size() - 1; k >= size; k--) {
+			rtn = rtn + cards.get(k);
 			if (k != size) {
 				rtn = rtn + ", ";
 			}
-			if ((k - cards.length) % 2 == 0) {
+			if ((k - cards.size()) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
 				rtn = rtn + "\n";
 			}

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  * This is a class that tests the Deck class.
  */
@@ -9,11 +10,13 @@ public class DeckTester {
 	 */
 	public static void main(String[] args) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		String[] ranks = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"};
-		String[] suits = {"hearts", "clubs", "spades", "diamonds"};
-		int[] pointValues = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
-		Deck d = new Deck(ranks, suits, pointValues, 0, 0, 0);
-		System.out.println(d.toString());
+		String[] ranks = {"one ", "two ", "three ", "four ", "five ", "six ", "seven ", "eight ", "nine ", "ten ", "jack ", "queen ", "king "};
+		String[] suits = {" hearts", " clubs", " spades", " diamonds"};
+		int[] values = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
+		ArrayList<Card>cards;
+		cards = new ArrayList<Card>();
+		Deck run = new Deck(ranks, suits, values);
+		System.out.println(run.toString());
 	}
 }
 
